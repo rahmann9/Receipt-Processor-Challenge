@@ -1,4 +1,4 @@
-package com.receiptprocessor.receipt_service.model;
+package com.receiptprocessor.receipt_service.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
