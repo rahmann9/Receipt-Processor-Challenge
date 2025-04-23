@@ -9,26 +9,27 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/receipt")
+@RequestMapping("/receipts")
 public class ReceiptController {
-    private ReceiptService receiptService;
+
+    private final ReceiptService receiptService;
 
     @Autowired
     public ReceiptController(ReceiptService receiptService) {
         this.receiptService = receiptService;
     }
 
-    @RequestMapping("/points")
-    public ResponseEntity<ReceiptIdResponse>processReceipt(@RequestBody Receipt receipt) {
+    @PostMapping("/process")
+    public ResponseEntity<ReceiptIdResponse> processReceipt(@RequestBody Receipt receipt) {
         String id = receiptService.processReceipt(receipt);
         return ResponseEntity.ok(new ReceiptIdResponse(id));
     }
-
     @GetMapping("/{id}/points")
     public ResponseEntity<PointsResponse> getPoints(@PathVariable String id) {
         if (!receiptService.receiptExists(id)) {
             return ResponseEntity.notFound().build();
         }
+
         Integer points = receiptService.getPoints(id);
         return ResponseEntity.ok(new PointsResponse(points));
     }
