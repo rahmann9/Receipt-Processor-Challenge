@@ -76,18 +76,18 @@ mvn clean package
 ```
 4. Run the application
 ```
-java -jar target/receipt-processor-0.0.1-SNAPSHOT.jar
+java -jar target/receipt-service-0.0.1-SNAPSHOT.jar
 ```
 
 ### Using Docker
 
 1. Build the Docker image
 ```
-docker build -t receipt-processor .
+docker build -t receipt-service .
 ```
 2. Run the Docker container
 ```
-docker run -p 8080:8080 receipt-processor
+docker run -p 8080:8080 receipt-service
 ```
 
 ### Using Docker Compose
