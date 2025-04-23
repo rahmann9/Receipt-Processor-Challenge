@@ -43,7 +43,7 @@ public class ReceiptService {
         }
 
         // Rule 2: 50 points if the total is a round dollar amount with no cents
-        Double total = Double.parseDouble(receipt.getTotal());
+        double total = Double.parseDouble(receipt.getTotal());
         // Checks if the number is a whole number (a round dollar amount with no cents)
         if (total % 1 == 0 && total >= 1.0) {points += 50;}
 
